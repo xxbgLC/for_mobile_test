@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>test</title>
+</head>
+
+<body>
+  <div id="bg">
+  </div>
+  <script src="./js/zepto.min.js"></script>
+  <script src="./js/index.js"></script>
+  <!-- <script src="./js/vconsole.min.js"></script>
+  <script>
+    // init vConsole
+    var vConsole = new VConsole();
+    console.log('Hello world');
+  </script> -->
+  <script>
+    //判断手机横竖屏状态：
+    function hengshuping() {
+      if (window.orientation == 180 || window.orientation == 0) {
+        alert("竖屏状态！")
+      }
+      if (window.orientation == 90 || window.orientation == -90) {
+        alert("横屏状态！")
+      }
+    }
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+
+    //移动端的浏览器一般都支持window.orientation这个参数，通过这个参数可以判断出手机是处在横屏还是竖屏状态。
+    //从而根据实际需求而执行相应的程序。 通过添加监听事件onorientationchange， 进行执行就可以了。
+  </script>
+</body>
+
+</html>
