@@ -6,11 +6,11 @@ var server = http.createServer();
 var port = 4567
 var hostName = getLoaclIP()
 
-var handlerequest = function (request, respone) {
+var handlerequest = (request, respone) => {
   var url = request.url;
   if (url == '/') {
     respone.writeHead(200, { 'Content-Type': 'text/html' });
-    fs.readFile('./index.html', function (err, data) {
+    fs.readFile('./index.html',(err, data) => {
       if (err) {
         console.error(err);
         return;
@@ -21,7 +21,7 @@ var handlerequest = function (request, respone) {
     var ourl = '.' + url;
     var type = ourl.substr(ourl.lastIndexOf(".") + 1, ourl.length)
     respone.writeHead(200, { 'Content-type': "text/" + type });
-    fs.readFile(ourl, function (err, data) {
+    fs.readFile(ourl, (err, data) => {
       if (err) {
         console.error(err);
         return;
@@ -32,7 +32,7 @@ var handlerequest = function (request, respone) {
 }
 server.on('request', handlerequest);
 
-server.listen(port, hostName, function () {
+server.listen(port, hostName, () => {
   console.log(`runing at http://${hostName}:${port}`);
 })
 
